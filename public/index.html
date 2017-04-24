@@ -2,9 +2,7 @@
 <html>
     <head>
         <title>Super Poker 64</title>
-        <style login>
-          @import "/css/login.css";
-        </style>
+        <link rel="stylesheet" type="text/css" href="/css/login.css" />
     </head>
     <!-- JavaScript Libraries -->
     <!-- jQuery! -->
@@ -23,28 +21,40 @@
         serve the proper Socket.IO javascript files used by the browser -->
     <script src="/socket.io/socket.io.js"></script>
 
+    <!-- Load in the login popup script -->
+    <script src="/js/login.js"></script>
+
     <!-- app.js is where all the client-side Anagrammatix game logic -->
     <script src="app.js"></script>
-    <body>
-        <form style="login">
-            <div class="container">
-              <label><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
+    </script>
 
-              <label><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
+    <body onload="showpopup();">
+        <div id="login_form" class="login-popup">
+            <div class="login-content">
+                <center>
+                    <div class="container">
+                        <div>
+                            <label><h3>Super Poker 64</h3></label>
+                        </div>
+                        <div>
+                            <label><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username" id="username" required>
+                        </div>
+                        <div>
+                            <label><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" id="password" required>
+                        </div>
+                        <div>
+                            <input type="button" value="Login" onclick="check_login()">
+                            <!-- <input type="checkbox" checked="unchecked"> Remember me -->
+                        </div>
+                    </div>
+                </center>
+            </div>
+        </div>
 
-              <button type="submit">Login</button>
-              <input type="checkbox" checked="checked"> Remember me
-            </div>
-
-            <div class="container" style="background-color:#f1f1f1">
-              <button type="button" class="cancelbtn">Cancel</button>
-              <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
-            <div id="gameArea">
-              <!-- This is where the templates defined below will be used -->
-            </div>
-      </form>
+        <div id="gameArea">
+          <!-- This is where the templates defined below will be used -->
+        </div>
     </body>
 </html>

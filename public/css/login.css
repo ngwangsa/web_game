@@ -1,11 +1,55 @@
-/* Bordered form */
-form {
-    border: 3px solid #f1f1f1;
+/* The Modal (background) */
+.login-popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.login-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Small text */
+b {
+    padding-right: 15px;
+}
+
+/* Header 3 */
+h3 {
+    font-size: 16;
+    font-weight: bold;
 }
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
-    width: 100%;
+    width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -14,14 +58,20 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+input[type=button] {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
+    padding-left: 15px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 60%;
+}
+
+/* Style for the checkbox */
+input[type=checkbox] {
+    padding-left: 30px;
 }
 
 /* Add a hover effect for buttons */
@@ -29,34 +79,9 @@ button:hover {
     opacity: 0.8;
 }
 
-/* Extra style for the cancel button (red) */
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-}
-
-/* Center the avatar image inside this container */
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-}
-
-/* Avatar image */
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
-
 /* Add padding to containers */
 .container {
     padding: 16px;
-}
-
-/* The "Forgot password" text */
-span.psw {
-    float: right;
-    padding-top: 16px;
 }
 
 /* Change styles for span and cancel button on extra small screens */
@@ -65,7 +90,32 @@ span.psw {
         display: block;
         float: none;
     }
-    .cancelbtn {
-        width: 100%;
-    }
+}
+
+/* Handles the shaking animation */
+.shake_effect
+{
+ animation: shake 1s ;
+}
+@keyframes shake
+{
+ 10%, 90%
+ {
+  transform: translate3d(-1px, 0, 0);
+ }
+
+ 20%, 80%
+ {
+  transform: translate3d(2px, 0, 0);
+ }
+
+ 30%, 50%, 70%
+ {
+  transform: translate3d(-4px, 0, 0);
+ }
+
+ 40%, 60%
+ {
+  transform: translate3d(4px, 0, 0);
+ }
 }

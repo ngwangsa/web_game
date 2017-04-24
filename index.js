@@ -7,6 +7,9 @@ var path = require('path');
 // Create a new instance of Express
 var app = express();
 
+// Import the AWS module
+var aws = require("aws-sdk");
+
 // Import the game files
 var poker = require('./poker');
 
@@ -23,5 +26,10 @@ console.log("Starting Server...")
 // Listen for Socket.IO connections. Once connected, start the game logic.
 io.sockets.on('connection', function(socket) {
     console.log('Client Connected');
-    //poker.login(io, socket);
+    poker.login(io, socket);
+
+    // Listen for Socket.IO disconections.
+    socket.on('disconnect', function() {
+        console.log('Client Disconnected');
+    });
 });
