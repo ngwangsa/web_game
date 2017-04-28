@@ -1,16 +1,19 @@
-/*
-$(document).ready(function()
-{
-    $("#show_login").click(function(){
-        showpopup();
-    });
-
-    $("#close_login").click(function(){
+var socket = io.connect();
+socket.on('login', function(res) {
+    if(res.message=="success") {
+        console.log("Successfully Logged In");
         hidepopup();
-    });
-    showpopup();
+        $("#username").val("");
+        $("#password").val("");
+    }
+    else {
+        console.log("Incorrect Login");
+        $("#login_form").removeClass('shake_effect');
+        setTimeout(function() {
+            $("#login_form").addClass('shake_effect')
+        }, 1);
+    }
 });
-*/
 
 function showpopup()
 {
@@ -23,7 +26,7 @@ function hidepopup()
     var login = document.getElementById('login_form');
     login.style.display = "none";
 }
-
+/*
 function check_login()
 {
     var name=$("#username").val();
@@ -42,4 +45,12 @@ function check_login()
             $("#login_form").addClass('shake_effect')
         }, 1);
     }
+}
+*/
+function login()
+{
+    console.log("Attempting to Login");
+    var name=$("#username").val();
+    var pass=$("#password").val();
+    socket.emit('login', {username: name, password: pass });
 }

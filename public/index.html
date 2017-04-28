@@ -1,9 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>Super Poker 64</title>
         <link rel="stylesheet" type="text/css" href="/css/login.css" />
     </head>
+
+    <script>
+        if (typeof(Storage) == "undefined") {
+            document.location.href="error.html";
+        }
+    </script>
     <!-- JavaScript Libraries -->
     <!-- jQuery! -->
     <script src="/lib/jquery-3.2.1.min.js"></script>
@@ -25,8 +32,7 @@
     <script src="/js/login.js"></script>
 
     <!-- app.js is where all the client-side Anagrammatix game logic -->
-    <script src="app.js"></script>
-    </script>
+    <!-- <script src="app.js"></script> -->
 
     <body onload="showpopup();">
         <div id="login_form" class="login-popup">
@@ -34,18 +40,18 @@
                 <center>
                     <div class="container">
                         <div>
-                            <label><h3>Super Poker 64</h3></label>
+                            <label><h3>Super Salty 64</h3></label>
                         </div>
                         <div>
                             <label><b>Username</b></label>
                             <input type="text" placeholder="Enter Username" id="username" required>
                         </div>
                         <div>
-                            <label><b>Password</b></label>
+                            <label><b>Password </b></label>
                             <input type="password" placeholder="Enter Password" id="password" required>
                         </div>
                         <div>
-                            <input type="button" value="Login" onclick="check_login()">
+                            <input type="button" value="Login" onclick="login()">
                             <!-- <input type="checkbox" checked="unchecked"> Remember me -->
                         </div>
                     </div>
@@ -54,7 +60,8 @@
         </div>
 
         <div id="gameArea">
-          <!-- This is where the templates defined below will be used -->
+            <!-- This is where the templates defined below will be used -->
+            <h1>WELCOME</h1>
         </div>
     </body>
 </html>

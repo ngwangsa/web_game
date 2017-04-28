@@ -21,12 +21,21 @@ var server = require('http').createServer(app).listen(process.env.PORT || 8080);
 
 // Create a Socket.IO server and attach it to the http server
 var io = require('socket.io').listen(server);
-console.log("Starting Server...")
+console.log("Server Started");
 
 // Listen for Socket.IO connections. Once connected, start the game logic.
 io.sockets.on('connection', function(socket) {
     console.log('Client Connected');
-    poker.login(io, socket);
+
+    socket.on('login', function(data) {
+        console.log('Client attempting login...');
+        if(data.username == "user" && data.password == "pass") {
+            socket.emit('login', { message: 'success', session: data.username });
+        }
+        else {
+            socket.emit('login', { message: 'Wrong username or password', session: ''});
+        }
+    });
 
     // Listen for Socket.IO disconections.
     socket.on('disconnect', function() {
