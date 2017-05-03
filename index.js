@@ -27,15 +27,21 @@ console.log("Server Started");
 io.sockets.on('connection', function(socket) {
     console.log('Client Connected');
 
-    socket.on('login', function(data) {
+    // Handle login
+    socket.on('login', function(login_info) {
         console.log('Client attempting login...');
-        if(data.username == "user" && data.password == "pass") {
-            socket.emit('login', { message: 'success', session: data.username });
+        if(login_info.username == "user" && login_info.password == "pass") {
+            socket.emit('login', { message: 'success', session: login_info.username });
         }
         else {
             socket.emit('login', { message: 'Wrong username or password', session: ''});
         }
     });
+
+    // Handle the creation of a new account
+    socket.on('newAccount', function() {
+        console.('Client attempting to create a new account');
+    })
 
     // Listen for Socket.IO disconections.
     socket.on('disconnect', function() {

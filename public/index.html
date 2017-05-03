@@ -34,13 +34,13 @@
     <!-- app.js is where all the client-side Anagrammatix game logic -->
     <!-- <script src="app.js"></script> -->
 
-    <body onload="showpopup();">
+    <body onload="init();">
         <div id="login_form" class="login-popup">
             <div class="login-content">
                 <center>
                     <div class="container">
                         <div>
-                            <label><h3>Super Salty 64</h3></label>
+                            <label><h3>Login</h3></label>
                         </div>
                         <div>
                             <label><b>Username</b></label>
@@ -51,8 +51,11 @@
                             <input type="password" placeholder="Enter Password" id="password" required>
                         </div>
                         <div>
-                            <input type="button" value="Login" onclick="login()">
+                            <input type="button" value="Login" onclick="check_login()">
                             <!-- <input type="checkbox" checked="unchecked"> Remember me -->
+                        </div>
+                        <div padding-top=20px>
+                            Need an account? <a href onclick="newAccount()">Click Here</a>
                         </div>
                     </div>
                 </center>
